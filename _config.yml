@@ -1,0 +1,18 @@
+port:  5000
+markdown: kramdown
+name: 城市数据开放沙龙
+url: http://citydataopensalon.github.io
+title: 城市数据开放沙龙
+description: "带来你的城市问题、数据、技能一同探讨数据创新的可能"
+encoding: utf-8
+timezone: America/Chicago
+navigation:
+- text: 主页
+  url: /index.html
+- text: 关于
+  url: /
+- text: 探索城市问题
+  url: /
+- text: 找到你身边的活动
+  url: /
+  category: events
