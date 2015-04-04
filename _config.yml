@@ -6,11 +6,13 @@ title: 开放数据沙龙
 description: "带来你的城市问题、数据、技能一同探讨数据开放与创新的可能"
 encoding: utf-8
 timezone: China/Beiijng
+city: 上海
 navigation:
 - text: 主页
   url: /index.html
 - text: 历次活动
-  url: http://t.cn/RwTkl6g
+  url: /events/index.html
+  category: events
 - text: 贡献你的力量
   url: https://github.com/opendatasalon/opendatasalon.github.io/issues
 

@@ -1,0 +1,55 @@
+---
+layout: default
+title: Events
+description: Recent and upcoming hack nights, with links to each event's video livestream, projects, people, and data. 
+---
+
+<!-- Begin page content-->
+<h1>
+  <small id='event-count'>
+    {{site.categories['events'].size }}
+  </small>
+  活动
+</h1>
+<p>所有已经举办和即将举办的活动，每一个活动页面都提供了活动详情、总结、数据和资源链接、视频和照片。<br /><a href='/feed.xml'><i class='fa fa-rss'></i> RSS feed</a></p>
+
+<table id='hack-night-events' class='table'>
+  <thead>
+    <tr itemscope itemtype='http://schema.org/Event'>
+      <th>日期</th>
+      <th>活动</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for post in site.categories['events'] %}
+      <tr>
+        <td class='nowrap'>
+          <div class='well text-center'>
+            <meta itemprop='startDate' content='{{ post.date | date: "%Y-%m-%d" }}'>
+            <h3>{{ post.date | date: "%b %d" }}</h3>
+            <h4>{{ post.date | date: "%Y" }}</h4>
+            {% if site.time <= post.date %}
+              <a class='btn btn-success btn-sm' href='http://opengovhacknight.eventbrite.com/' itemprop='url'>RSVP &raquo;</a>
+            {% endif %}
+          </div>
+        </td>
+        <td>
+          <h3><small>#{{post.event_id}}</small> <a href='{{ post.url }}' itemprop='url'><span itemprop='name'>{{ post.title }}</span></a></h3>
+          <div itemprop='description'>
+          {{post.abstract}}
+          </div>
+          <ul class='list-block'>
+            <li><span >数据赞助商：{{post.datasponsor}}</span></li>
+        
+            <li><span >食物赞助商：{{post.foodsponsor}}</span></li>
+            
+            <li><span >共同组织者：{{post.coorg}}</span></li>
+           
+          </ul>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<script src="/lib/events.js"></script>

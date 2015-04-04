@@ -16,7 +16,7 @@ layout: default
     <small>#{{page.event_id}}</small>
     <span itemprop="name">{{page.title}}</span>
     {% if site.time <= page.date %}
-      <a class='btn btn-success btn-sm' href='http://opengovhacknight.eventbrite.com/'>RSVP &raquo;</a>
+      <a class='btn btn-success btn-sm' href='http://www.huodongxing.com/org/630434844001'>RSVP（从速报名） &raquo;</a>
     {% endif %}
   </h1>
   <hr />
@@ -24,8 +24,8 @@ layout: default
   <div class='row'>
     <div class='col-md-7'>
 
-      {% if page.youtube_id %}
-        <iframe width="500" height="280" src="http://www.youtube.com/embed/{{page.youtube_id}}" frameborder="0" allowfullscreen></iframe>
+      {% if page.youku_id %}
+        <iframe height=498 width=510 src="http://player.youku.com/embed/{{page.youku_id}}" frameborder=0 allowfullscreen></iframe>
         <hr />
       {% endif %}
 
@@ -62,35 +62,32 @@ layout: default
     </div>
     <div class='col-md-5'>
       <div class='well'>
-        <p><img class='img-thumbnail' src='/images/1871_map.png'></p>
         <p>
-          6pm<br />
+          {{page.time}}<br />
           {{ page.date | date: "%b %d, %Y" }}<br />
           <div itemprop="location" itemscope itemtype="http://schema.org/Place">
-            <a itemprop="url" href='https://www.braintreepayments.com/'><span itemprop="name">Braintree office</span></a><br />
-            <a href='https://maps.google.com/maps?q=222+W+Merchandise+Mart+Plz+Chicago'>
+            <span itemprop="name">{{page.location}}</span><br />
+            <a href='http://map.baidu.com/?l=&s=s%26wd%3D{{page.address}}'>
               <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                <span itemprop="streetAddress">222 W Merchandise Mart Plz 8th Floor</span><br />
-                <span itemprop="addressLocality">Chicago</span>,
-                <span itemprop="addressRegion">IL</span>
+                <span itemprop="streetAddress">{{page.address}}</span><br />
+                <span itemprop="addressLocality">{{site.city}}</span>
+                <span itemprop="addressRegion">{{site.province}}</span>
               </div>
             </a><br />
           </div>
         </p>
 
         <p>
-          <strong>Food provided by</strong> {{page.sponsor}}<br />
-          <strong>Read our</strong> <a href='/code-of-conduct.html'>Code of Conduct</a>
+          <strong>此次活动的食物由{{page.foodsponsor}}资助<br />
+          <strong>此次活动的数据由{{page.datasponsor}}提供<br />
+          <strong>此次活动由{{page.coorg}}联合组织<br />
         </p>
 
-        {% if page.youtube_id %}
-
-        {% else %}
           <p>
-            <strong><i class='fa fa-youtube-play'></i> Video</strong><br />
-            Christopher Whitaker from the <a href='http://www.smartchicagocollaborative.org/'>Smart Chicago Collaborative</a> records and livestreams our presentations. <a href='https://www.youtube.com/user/smartchicago/'>Watch them on YouTube</a>!
+            <strong><i class='fa fa-youtube-play'></i>视频与资源 </strong><br />
+            此次活动的视频请戳<a href="{{page.video}}">这里</a>以及活动资料(作品及数据)请见<a href="{{page.resource}}">这里</a>
           </p>
-        {% endif %}
+
       </div>
     </div>
   </div>
@@ -99,46 +96,6 @@ layout: default
 <div class='row'>
   <div class='col-md-12'>
 
-    <hr />
-    <h4 id='slideshow-header' style='display: none;'>Flickr photos from Open Gov Hack Night #{{page.event_id}}</h4>
-    <div class='slideshow'></div>
-    <p>Have a photo of this event? Upload it to <a href='http://flickr.com'>Flickr</a> and tag it with <strong><a href='https://www.flickr.com/search/?tags=chihacknight-{{page.event_id}}'>chihacknight-{{page.event_id}}</a></strong></p>
 
-    <script src="/js/galleria/galleria.js"></script>
-    <script src="/js/galleria/plugins/flickr/galleria.flickr.js"></script>
-    <script>
-      var flickr = new Galleria.Flickr();
-        flickr.tags('chihacknight-{{page.event_id}}, chihacknight{{page.event_id}}', function(data) {
-            // Should we show or hide the slideshow?
-            var $slideshow = $(".slideshow");
-            if (data.length) {
-              $slideshow.css({height: 600, marginBottom: 20});
-              $('#slideshow-header').show()
-            } else {
-              $slideshow.hide();
-            }
-
-            Galleria.loadTheme('/js/galleria/themes/classic/galleria.classic.js');
-            Galleria.run('.slideshow', {
-                dataSource: data
-            });
-        });
-    </script>
-
-    <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'chihacknight'; // required: replace example with your forum shortname
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        
   </div>
 </div>
